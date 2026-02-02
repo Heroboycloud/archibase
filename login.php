@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+$err_msg=null;
+
+if(isset($_POST["login_id"])){
+  $username=$_POST["username"];
+  $password= $_POST["password"];
+  if($username=="admin" && $password=="root"){
+    $_SESSION["login"]=true;
+    $_SESSION["username"]="Azeez";
+    header("Location: dashboard.php");
+  }
+  else{
+    $err_msg="Wrong Username or Password!";
+  }
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS</title>
@@ -6,7 +27,7 @@
 <body>
 
 <div class="w3-container">
-  <h2>W3.CSS Login Modal</h2>
+  <h2>Login to Archibase</h2>
 
   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Login</button>
 
@@ -18,14 +39,16 @@
         <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
       </div>
 
-      <form class="w3-container" action="">
+      <form class="w3-container" action="" method="POST">
         <div class="w3-section">
           <label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
           <label><b>Password</b></label>
-          <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="password" required>
+          <input type="hidden" value="<?php echo md5(time()); ?>" name="login_id">
+
           <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked" id="remember"> Remember me
         </div>
       </form>
 
