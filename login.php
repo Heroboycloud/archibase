@@ -48,6 +48,27 @@ if(isset($_POST["login_id"])){
           <input type="hidden" value="<?php echo md5(time()); ?>" name="login_id">
 
           <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+<?php
+if($err_msg){
+?>
+<div class="w3-panel w3-red w3-display-container">
+  <span onclick="this.parentElement.style.display='none'"
+  class="w3-button w3-large w3-display-topright">&times;</span>
+  
+  <p>
+
+  <?php
+  echo $err_msg;
+  ?>
+  </p>
+</div>
+  <?php
+}
+?>
+
+
+
+
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked" id="remember"> Remember me
         </div>
       </form>
@@ -63,5 +84,4 @@ if(isset($_POST["login_id"])){
             
 </body>
 
-<!-- Mirrored from www.w3schools.com/w3css/tryit.asp?filename=tryw3css_examples_modal_login by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Jan 2020 02:37:32 GMT -->
 </html>
