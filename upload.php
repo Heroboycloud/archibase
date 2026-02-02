@@ -6,7 +6,7 @@ $target_file = $target_dir . basename($_FILES["file_upload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
+if(isset($_POST["submit"]) || isset($_POST["course_name"])) {
   // Check if file already exists
 if (file_exists($target_file)) {
   echo "Sorry, file already exists.";
@@ -53,6 +53,12 @@ include_once "header.php";
   <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
     <div class="w3-rest">
       <input class="w3-input w3-border" name="file_upload" type="file" placeholder="Document">
+    </div>
+</div>
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="course_name" type="text" placeholder="Course Name">
     </div>
 </div>
 
