@@ -76,8 +76,8 @@ include_once "header.php";
 <div class="w3-panel w3-animate-bottom w3-blue w3-display-container">
   <span onclick="this.parentElement.style.display='none'"
   class="w3-button w3-large w3-display-topright">&times;</span>
-  <h3>Info!</h3>
-  <p>Blue often indicates a neutral informative change or action.</p>
+  <h3>Welcome, <?php echo $user; ?></h3>
+  <p>You need to focus on your studies!!!</p>
 </div>
 
 

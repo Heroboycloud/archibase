@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION["username"])){
+  $user= $_SESSION["username"];
+}
+else{
+  $user=null;
+}
+?>
 <!DOCTYPE html>
 <html>
 <title>Archibase</title>
